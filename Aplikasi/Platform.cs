@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Text.Json;
 
 namespace Aplikasi
 {
@@ -7,64 +8,70 @@ namespace Aplikasi
         public List<Admin> Admins = new List<Admin> { new Admin("admin", "admin") };
         public List<Person> People = new List<Person>();
 
-        public bool Login(string username, string password)
-        {
-            LoginState currentState = LoginState.Initial;
-            int adminIndex = 0;
-            int peopleIndex = 0;
-
-            while (true)
-            {
-                switch (currentState)
-                {
-                    case LoginState.Initial:
-                        if (adminIndex < Admins.Count)
-                        {
-                            if (Admins[adminIndex].Username == username && Admins[adminIndex].Password == password)
-                            {
-                                Console.WriteLine("Log-In anda berhasil sebagai Admin!");
-                                return true;
-                            }
-                            adminIndex++;
-                        }
-                        currentState = LoginState.PeopleCheck;
-                        break;
-                    case LoginState.PeopleCheck:
-                        if (peopleIndex < People.Count)
-                        {
-                            if (People[peopleIndex].Username == username && People[peopleIndex].Password == password)
-                            {
-                                Console.WriteLine("Log-In anda berhasil!");
-                                return true;
-                            }
-                            peopleIndex++;
-                        }
-                        currentState = LoginState.Final;
-                        break;
-                    case LoginState.Final:
-                        return false;
-                }
-            }
-        }
-
-        public enum LoginState
+        public enum SignUpState
         {
             Initial,
-            PeopleCheck,
+            CheckRun,
             Final
-        }
-
+        };
 
         public void SignUp(string username, string password)
         {
-            Person person = new Person(username, password);
-            People.Add(person);
+            SignUpState signUpState = SignUpState.Initial;
+            switch (signUpState)
+            {
+                case SignUpState.Initial:
+                    signUpState = SignUpState.CheckRun;
+                    break;
+                case SignUpState.CheckRun:
+                    for(int i = 0; i < People.Count;i++)
+                    {
+                        if(username == People[i].Username)
+                        {
+                            Console.WriteLine("Username sudah ada");
+                            break;
+                        }
+                    }
+                    signUpState = SignUpState.Final;
+                    break;
+                case SignUpState.Final:
+                    Person people = new Person(username, password);
+                    People.Add(people);
+                    Console.WriteLine("Selamat anda berhasil melakukan SignUp");
+                    break;
+            }
 
-            // Membaca konfigurasi dari file JSON
-            SignUpConfig configuration = SignUpConfig.LoadSignUpConfig("json1.json");
+        }
+        public bool Login<T>(string username, string password)
+        {
+            Type t = typeof(T);
 
-            Console.WriteLine(configuration.SuccessMessage);
-            Console.WriteLine(configuration.AccountCreatedMessage);
+            if (t == typeof(Admin))
+            {
+                for(int i = 0; i < Admins.Count; i++)
+                {
+                    if (username.Equals(Admins[i].Username) && password.Equals(Admins[i].Password))
+                    {
+                        return true;
+                    }
+                }
+                return false;
+            }
+            else if (t == typeof(Person))
+            {
+                for (int i = 0; i < People.Count; i++)
+                {
+                    if (username.Equals(People[i].Username) && password.Equals(People[i].Password))
+                    {
+                        return true;
+                    }
+                }
+                return false;
+            }
+            else
+            {
+                return false;
+            }
         }
 
         enum MenuOption
@@ -143,11 +150,22 @@ namespace Aplikasi
                     input1 = Console.ReadLine();
                     Console.WriteLine("Masukan Password anda : ");
                     input2 = Console.ReadLine();
-                    Login(input1, input2);
+                    Console.WriteLine("LogIn sebagai (Admin/Person) : ");
+                    Console.WriteLine("LogIn sebagai (Admin/Person) : ");
+                    string loginType = Console.ReadLine();
 
-                    //app = new Platform();
-                    //app.Login(input1, input2);
-
+                    if (loginType == "Admin")
+                    {
+                        Login<Admin>(input1, input2);
+                    }
+                    else if (loginType == "Person")
+                    {
+                        Login<Person>(input1, input2);
+                    }
+                    else
+                    {
+                        Console.WriteLine("Tipe login tidak valid.");
+                    }
                     break;
             }
 
