@@ -1,9 +1,11 @@
 ﻿using Aplikasi;
+using Alokasi;
 
 Platform AppControl = new Platform();
 
-string input = Console.ReadLine();
-string output = Console.ReadLine();
 
-AppControl.Login(input, output);
+
+AppControl.MenuRegis();
 AppControl.Menu();
+
+
