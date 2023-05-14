@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Text.Json;
 
 namespace Aplikasi
 {
@@ -7,35 +8,70 @@ namespace Aplikasi
         public List<Admin> Admins = new List<Admin> { new Admin("admin", "admin") };
         public List<Person> People = new List<Person>();
 
-
-        public bool Login(string username, string password)
+        public enum SignUpState
         {
-            for (int i = 0; i < Admins.Count; i++)
-            {
-                if (Admins[i].Username == username && Admins[i].Password == password)
-                {
-                    Console.WriteLine("Log-In anda berhasil sebagai Admin!");
-                    return true;
-                }
-            }
-            for (int i = 0; i < People.Count; i++)
-            {
-                if (People[i].Username == username && People[i].Password == password)
-                {
-                    Console.WriteLine("Log-In anda berhasil!");
-                    return true;
-                }
-            }
-
-            return false;
-        }
+            Initial,
+            CheckRun,
+            Final
+        };
 
         public void SignUp(string username, string password)
         {
-            Person person = new Person(username, password);
-            People.Add(person);
-            Console.WriteLine("Registrasi anda berhasil!");
-            Console.WriteLine("Kini anda telah mempunyai akun");
+            SignUpState signUpState = SignUpState.Initial;
+            switch (signUpState)
+            {
+                case SignUpState.Initial:
+                    signUpState = SignUpState.CheckRun;
+                    break;
+                case SignUpState.CheckRun:
+                    for(int i = 0; i < People.Count;i++)
+                    {
+                        if(username == People[i].Username)
+                        {
+                            Console.WriteLine("Username sudah ada");
+                            break;
+                        }
+                    }
+                    signUpState = SignUpState.Final;
+                    break;
+                case SignUpState.Final:
+                    Person people = new Person(username, password);
+                    People.Add(people);
+                    Console.WriteLine("Selamat anda berhasil melakukan SignUp");
+                    break;
+            }
+
+        }
+        public bool Login<T>(string username, string password)
+        {
+            Type t = typeof(T);
+
+            if (t == typeof(Admin))
+            {
+                for(int i = 0; i < Admins.Count; i++)
+                {
+                    if (username.Equals(Admins[i].Username) && password.Equals(Admins[i].Password))
+                    {
+                        return true;
+                    }
+                }
+                return false;
+            }
+            else if (t == typeof(Person))
+            {
+                for (int i = 0; i < People.Count; i++)
+                {
+                    if (username.Equals(People[i].Username) && password.Equals(People[i].Password))
+                    {
+                        return true;
+                    }
+                }
+                return false;
+            }
+            else
+            {
+                return false;
+            }
         }
 
         enum MenuOption
@@ -114,11 +150,22 @@ namespace Aplikasi
                     input1 = Console.ReadLine();
                     Console.WriteLine("Masukan Password anda : ");
                     input2 = Console.ReadLine();
-                    Login(input1, input2);
+                    Console.WriteLine("LogIn sebagai (Admin/Person) : ");
+                    Console.WriteLine("LogIn sebagai (Admin/Person) : ");
+                    string loginType = Console.ReadLine();
 
-                    //app = new Platform();
-                    //app.Login(input1, input2);
-
+                    if (loginType == "Admin")
+                    {
+                        Login<Admin>(input1, input2);
+                    }
+                    else if (loginType == "Person")
+                    {
+                        Login<Person>(input1, input2);
+                    }
+                    else
+                    {
+                        Console.WriteLine("Tipe login tidak valid.");
+                    }
                     break;
             }
 
