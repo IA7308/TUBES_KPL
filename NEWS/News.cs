@@ -3,10 +3,14 @@
     public class News
     {
         public string news { get; set; }
+        public string judul { get; set; }
+        public string isi { get; set; }
 
-        public News(string news)
+        //konstruktor default
+        public News()
         {
-            this.news = news;
+            
+
         }
     }
 }
