@@ -7,35 +7,64 @@ namespace Aplikasi
         public List<Admin> Admins = new List<Admin> { new Admin("admin", "admin") };
         public List<Person> People = new List<Person>();
 
-
         public bool Login(string username, string password)
         {
-            for (int i = 0; i < Admins.Count; i++)
-            {
-                if (Admins[i].Username == username && Admins[i].Password == password)
-                {
-                    Console.WriteLine("Log-In anda berhasil sebagai Admin!");
-                    return true;
-                }
-            }
-            for (int i = 0; i < People.Count; i++)
-            {
-                if (People[i].Username == username && People[i].Password == password)
-                {
-                    Console.WriteLine("Log-In anda berhasil!");
-                    return true;
-                }
-            }
+            LoginState currentState = LoginState.Initial;
+            int adminIndex = 0;
+            int peopleIndex = 0;
 
-            return false;
+            while (true)
+            {
+                switch (currentState)
+                {
+                    case LoginState.Initial:
+                        if (adminIndex < Admins.Count)
+                        {
+                            if (Admins[adminIndex].Username == username && Admins[adminIndex].Password == password)
+                            {
+                                Console.WriteLine("Log-In anda berhasil sebagai Admin!");
+                                return true;
+                            }
+                            adminIndex++;
+                        }
+                        currentState = LoginState.PeopleCheck;
+                        break;
+                    case LoginState.PeopleCheck:
+                        if (peopleIndex < People.Count)
+                        {
+                            if (People[peopleIndex].Username == username && People[peopleIndex].Password == password)
+                            {
+                                Console.WriteLine("Log-In anda berhasil!");
+                                return true;
+                            }
+                            peopleIndex++;
+                        }
+                        currentState = LoginState.Final;
+                        break;
+                    case LoginState.Final:
+                        return false;
+                }
+            }
         }
+
+        public enum LoginState
+        {
+            Initial,
+            PeopleCheck,
+            Final
+        }
+
 
         public void SignUp(string username, string password)
         {
             Person person = new Person(username, password);
             People.Add(person);
-            Console.WriteLine("Registrasi anda berhasil!");
-            Console.WriteLine("Kini anda telah mempunyai akun");
+
+            // Membaca konfigurasi dari file JSON
+            SignUpConfig configuration = SignUpConfig.LoadSignUpConfig("json1.json");
+
+            Console.WriteLine(configuration.SuccessMessage);
+            Console.WriteLine(configuration.AccountCreatedMessage);
         }
 
         enum MenuOption
