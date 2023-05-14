@@ -5,8 +5,8 @@ namespace Aplikasi
 {
     public class Platform
     {
-        public List<Admin> Admins = new List<Admin> { new Admin("admin", "admin") };
-        public List<Person> People = new List<Person>();
+        public List<Admin> Admins;
+        public List<Person> People;
 
         public enum SignUpState
         {
@@ -15,12 +15,20 @@ namespace Aplikasi
             Final
         };
 
+        public Platform() 
+        {
+            this.Admins = new List<Admin> { new Admin("admin", "admin") };
+            this.People = new List<Person>() { new Person("Walid", "walid123")};
+        }
+
         public void SignUp(string username, string password)
         {
             SignUpState signUpState = SignUpState.Initial;
             switch (signUpState)
             {
                 case SignUpState.Initial:
+                    Person people = new Person(username, password);
+                    People.Add(people);
                     signUpState = SignUpState.CheckRun;
                     break;
                 case SignUpState.CheckRun:
@@ -29,14 +37,13 @@ namespace Aplikasi
                         if(username == People[i].Username)
                         {
                             Console.WriteLine("Username sudah ada");
+                            People.RemoveAt(i);
                             break;
                         }
                     }
                     signUpState = SignUpState.Final;
                     break;
                 case SignUpState.Final:
-                    Person people = new Person(username, password);
-                    People.Add(people);
                     Console.WriteLine("Selamat anda berhasil melakukan SignUp");
                     break;
             }
@@ -140,11 +147,8 @@ namespace Aplikasi
                     Console.WriteLine("Masukan Password anda : ");
                     string input2 = Console.ReadLine();
                     SignUp(input1, input2);
-
-                    //Platform app = new Platform();
-                    //app.SignUp(input1, input2);
-
                     break;
+
                 case MenuOption1.LogIn:
                     Console.WriteLine("Masukan Username anda : ");
                     input1 = Console.ReadLine();
