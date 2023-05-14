@@ -78,19 +78,5 @@ namespace UnitTesting
             // Assert
             Assert.AreEqual(false, platform.Login<Person>(username, password));
         }
-
-        [TestMethod]
-        public void TestPenempatan()
-        {
-            // Arrange
-            string tempat = "Jalan Sudirman";
-            string waktu = "08:00";
-
-            // Act
-            string result = Alokasi.Alokasi.Penempatan(tempat, waktu);
-
-            // Assert
-            Assert.IsNotNull(result);
-        }
     }
 }

@@ -11,9 +11,16 @@ namespace Alokasi
             }
             Console.WriteLine("Pilih Kendaraan : ");
             int pilihan = int.Parse(Console.ReadLine());
-
+            if( pilihan < Kendaraan.Count ) 
+            {
+                return "Pakai kendaraan : " + Kendaraan[pilihan] + "\n" + "Dijemput di : " + tempat + "\n" + "Pada pukul : " + waktu;
+            }
+            else
+            {
+                return "Inputan Tidak Valid";
+            }
             
-            return "Pakai kendaraan : " + Kendaraan[pilihan] +"\n"+"Dijemput di : " + tempat + "\n"+ "Pada pukul : " + waktu;
+           
         }
     }
 }

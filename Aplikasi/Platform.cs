@@ -59,6 +59,7 @@ namespace Aplikasi
                 {
                     if (username.Equals(Admins[i].Username) && password.Equals(Admins[i].Password))
                     {
+                        Console.WriteLine("Login berhasil Sebagai Admin");
                         return true;
                     }
                 }
@@ -70,6 +71,7 @@ namespace Aplikasi
                 {
                     if (username.Equals(People[i].Username) && password.Equals(People[i].Password))
                     {
+                        Console.WriteLine("Login berhasil");
                         return true;
                     }
                 }
@@ -100,24 +102,31 @@ namespace Aplikasi
             }
 
             Console.WriteLine("Pilih Menu : ");
+            
             int input = int.Parse(Console.ReadLine());
 
-            switch ((MenuOption)input)
+            if(input < Menu.Length)
             {
-                case MenuOption.News:
-                    Console.WriteLine("TEKS NEWS");
-                    break;
-                case MenuOption.Alokasi:
-                    //Console.WriteLine("Teks Alokasi");
-                    Console.WriteLine("Masukan tempat penjemputan : ");
-                    string input1 = Console.ReadLine();
-                    Console.WriteLine("Masukan waktu penjemputan : ");
-                    string input2 = Console.ReadLine();
+                switch ((MenuOption)input)
+                {
+                    case MenuOption.News:
+                        Console.WriteLine("TEKS NEWS");
+                        break;
+                    case MenuOption.Alokasi:
+                        //Console.WriteLine("Teks Alokasi");
+                        Console.WriteLine("Masukan tempat penjemputan : ");
+                        string input1 = Console.ReadLine();
+                        Console.WriteLine("Masukan waktu penjemputan : ");
+                        string input2 = Console.ReadLine();
 
-                    Console.WriteLine(Alokasi.Alokasi.Penempatan(input1, input2));
-                    break;
+                        Console.WriteLine(Alokasi.Alokasi.Penempatan(input1, input2));
+                        break;
+                }
             }
-
+            else
+            {
+                Console.WriteLine("Inputan tidak Valid");
+            }
         }
 
         enum MenuOption1
@@ -138,41 +147,47 @@ namespace Aplikasi
             }
             Console.WriteLine("Pilih Menu : ");
             int input = int.Parse(Console.ReadLine());
-
-            switch ((MenuOption1)input)
+            
+            if(input < Menu.Length)
             {
-                case MenuOption1.SignUp:
-                    Console.WriteLine("Masukan Username anda : ");
-                    string input1 = Console.ReadLine();
-                    Console.WriteLine("Masukan Password anda : ");
-                    string input2 = Console.ReadLine();
-                    SignUp(input1, input2);
-                    break;
+                switch ((MenuOption1)input)
+                {
+                    case MenuOption1.SignUp:
+                        Console.WriteLine("Masukan Username anda : ");
+                        string input1 = Console.ReadLine();
+                        Console.WriteLine("Masukan Password anda : ");
+                        string input2 = Console.ReadLine();
+                        SignUp(input1, input2);
+                        break;
 
-                case MenuOption1.LogIn:
-                    Console.WriteLine("Masukan Username anda : ");
-                    input1 = Console.ReadLine();
-                    Console.WriteLine("Masukan Password anda : ");
-                    input2 = Console.ReadLine();
-                    Console.WriteLine("LogIn sebagai (Admin/Person) : ");
-                    Console.WriteLine("LogIn sebagai (Admin/Person) : ");
-                    string loginType = Console.ReadLine();
+                    case MenuOption1.LogIn:
+                        Console.WriteLine("Masukan Username anda : ");
+                        input1 = Console.ReadLine();
+                        Console.WriteLine("Masukan Password anda : ");
+                        input2 = Console.ReadLine();
+                        Console.WriteLine("LogIn sebagai (Admin/Person) : ");
+                        Console.WriteLine("LogIn sebagai (Admin/Person) : ");
+                        string loginType = Console.ReadLine();
 
-                    if (loginType == "Admin")
-                    {
-                        Login<Admin>(input1, input2);
-                    }
-                    else if (loginType == "Person")
-                    {
-                        Login<Person>(input1, input2);
-                    }
-                    else
-                    {
-                        Console.WriteLine("Tipe login tidak valid.");
-                    }
-                    break;
+                        if (loginType == "Admin")
+                        {
+                            Login<Admin>(input1, input2);
+                        }
+                        else if (loginType == "Person")
+                        {
+                            Login<Person>(input1, input2);
+                        }
+                        else
+                        {
+                            Console.WriteLine("Tipe login tidak valid.");
+                        }
+                        break;
+                }
             }
-
+            else
+            {
+                Console.WriteLine("Inputan Tidak Valid");
+            }
         }
     }
 }
