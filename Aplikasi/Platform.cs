@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Text.Json;
+using NEWS.Controllers;
 
 namespace Aplikasi
 {
@@ -88,7 +89,7 @@ namespace Aplikasi
             News, Alokasi
         };
 
-        public void Menu()
+        public void MenuUtama()
         {
             MenuOption[] Menu =
             {
@@ -110,7 +111,14 @@ namespace Aplikasi
                 switch ((MenuOption)input)
                 {
                     case MenuOption.News:
-                        Console.WriteLine("TEKS NEWS");
+                        NewsControl apiNews = new NewsControl();
+                        List<string> listNews = apiNews.infoNews();
+                        for (int i = 0; i < listNews.Count; i++)
+                        {
+                            Console.WriteLine(listNews[i]);
+                        }
+                        
+
                         break;
                     case MenuOption.Alokasi:
                         //Console.WriteLine("Teks Alokasi");
@@ -158,6 +166,7 @@ namespace Aplikasi
                         Console.WriteLine("Masukan Password anda : ");
                         string input2 = Console.ReadLine();
                         SignUp(input1, input2);
+                        MenuUtama();
                         break;
 
                     case MenuOption1.LogIn:
@@ -166,16 +175,17 @@ namespace Aplikasi
                         Console.WriteLine("Masukan Password anda : ");
                         input2 = Console.ReadLine();
                         Console.WriteLine("LogIn sebagai (Admin/Person) : ");
-                        Console.WriteLine("LogIn sebagai (Admin/Person) : ");
                         string loginType = Console.ReadLine();
 
                         if (loginType == "Admin")
                         {
                             Login<Admin>(input1, input2);
+                            MenuUtama();
                         }
                         else if (loginType == "Person")
                         {
                             Login<Person>(input1, input2);
+                            MenuUtama();
                         }
                         else
                         {

@@ -6,7 +6,7 @@ namespace NEWS.Controllers
     [Route("api/[Controller]")]
     public class NewsControl
     {
-        public static List<News> NewsList = new List<News>() 
+        public static List<News> NewsList = new List<News>()
         {
             new News{ news = "Event", judul = "Cegah Banjir", isi = "Bersihkan Saluran Air & Buang Sampah Pada Tempatnya"},
             new News{ news = "Info", judul = "Kebersihan Alam", isi = "Sampah yang dibuang sembarangan akan mencemari lingkungan"},
@@ -24,8 +24,6 @@ namespace NEWS.Controllers
             NewsList.RemoveAt(index);          
         }
         [HttpGet(Name = "InfoNews")]
-
-
         public List<string> infoNews()
         {
             List<string> str = new List<string>();
