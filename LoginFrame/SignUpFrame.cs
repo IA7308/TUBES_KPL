@@ -24,6 +24,21 @@ namespace LoginFrame
 
         private void button1_Click(object sender, EventArgs e)
         {
+            if (this.textBox1.Text == "" || this.textBox2.Text == "")
+            {
+                MessageBox.Show("Tidak Boleh Kosong", "Error", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            else
+            {
+                Login login = new Login();
+                login.Visible = true;
+                this.Hide();
+            }
+
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
             Login login = new Login();
             login.Visible = true;
             this.Hide();

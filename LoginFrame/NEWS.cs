@@ -21,5 +21,19 @@ namespace LoginFrame
         {
 
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            PilihKendaraan pilihKendaraan = new PilihKendaraan();
+            pilihKendaraan.Visible = true;
+            this.Hide();
+        }
+
+        private void label3_Click(object sender, EventArgs e)
+        {
+            Login login = new Login();
+            login.Visible = true;
+            this.Hide();
+        }
     }
 }

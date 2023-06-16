@@ -16,5 +16,17 @@ namespace LoginFrame
         {
             InitializeComponent();
         }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+            NEWS news = new NEWS();
+            news.Visible = true;
+            this.Hide();
+        }
+
+        private void radioButton2_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
