@@ -51,6 +51,7 @@
     </Compile>
     <Compile Include="Alokasi.Designer.cs">
       <DependentUpon>Alokasi.cs</DependentUpon>
+	</Compile>
     <Compile Include="NEWS.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -79,6 +80,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Alokasi.resx">
       <DependentUpon>Alokasi.cs</DependentUpon>
+	</EmbeddedResource>
     <EmbeddedResource Include="NEWS.resx">
       <DependentUpon>NEWS.cs</DependentUpon>
     </EmbeddedResource>
