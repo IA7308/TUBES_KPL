@@ -19,7 +19,15 @@ namespace LoginFrame
 
         private void Add_Click(object sender, EventArgs e)
         {
-            dgv.Rows.Add(Jenis.Text, Judulbox.Text, isiBox.Text);
+            if (this.Jenis.Text == "")
+            {
+                MessageBox.Show("Jenis Berita Tidak Boleh Kosong","Tidak Valid" ,MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            else
+            {
+                dgv.Rows.Add(Jenis.Text, Judulbox.Text, isiBox.Text);
+            }
+            
             
         }
 
