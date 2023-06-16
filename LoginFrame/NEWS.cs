@@ -10,11 +10,16 @@ using System.Windows.Forms;
 
 namespace LoginFrame
 {
-    public partial class PilihKendaraan : Form
+    public partial class NEWS : Form
     {
-        public PilihKendaraan()
+        public NEWS()
         {
             InitializeComponent();
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

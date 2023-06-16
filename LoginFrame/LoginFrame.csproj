@@ -46,6 +46,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="NEWS.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="NEWS.Designer.cs">
+      <DependentUpon>NEWS.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PilihKendaraan.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PilihKendaraan.Designer.cs">
+      <DependentUpon>PilihKendaraan.cs</DependentUpon>
+    </Compile>
     <Compile Include="Login.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -60,8 +72,14 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="NEWS.resx">
+      <DependentUpon>NEWS.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Login.resx">
       <DependentUpon>Login.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PilihKendaraan.resx">
+      <DependentUpon>PilihKendaraan.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

@@ -31,7 +31,7 @@ namespace LoginFrame
         {
             SignUpFrame SignUp = new SignUpFrame();
             SignUp.Visible = true;
-            //this.Close();
+            this.Hide();
         }
     }
 }

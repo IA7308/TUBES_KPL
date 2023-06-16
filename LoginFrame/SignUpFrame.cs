@@ -26,7 +26,7 @@ namespace LoginFrame
         {
             Login login = new Login();
             login.Visible = true;
-            this.Visible = false;
+            this.Hide();
         }
     }
 }
