@@ -17,7 +17,7 @@ namespace LoginFrame
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
 
-            Application.Run(new Alokasi());
+            Application.Run(new Login());
             
 
         }
