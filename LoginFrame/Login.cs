@@ -12,6 +12,7 @@ namespace LoginFrame
 {
     public partial class Login : Form
     {
+        
         public Login()
         {
             InitializeComponent();
@@ -24,6 +25,16 @@ namespace LoginFrame
 
         private void button1_Click(object sender, EventArgs e)
         {
+            if (this.textBox1.Text == "" || this.textBox2.Text == "")
+            {
+                MessageBox.Show("Tidak Boleh Kosong", "Error", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            else
+            {
+                NEWS news = new NEWS();
+                news.Visible = true;
+                this.Hide();
+            }
 
         }
 
@@ -31,7 +42,12 @@ namespace LoginFrame
         {
             SignUpFrame SignUp = new SignUpFrame();
             SignUp.Visible = true;
-            //this.Close();
+            this.Hide();
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

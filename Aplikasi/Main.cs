@@ -8,6 +8,5 @@ Platform AppControl = new Platform();
 
 
 AppControl.MenuRegis();
-AppControl.Menu();
 
 

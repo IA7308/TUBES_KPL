@@ -67,6 +67,7 @@
             this.label1.Size = new System.Drawing.Size(40, 16);
             this.label1.TabIndex = 3;
             this.label1.Text = "Login";
+            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // label2
             // 
@@ -105,7 +106,7 @@
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
-            // SignUp
+            // SignUpFrame
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -119,7 +120,7 @@
             this.Controls.Add(this.textBox3);
             this.Controls.Add(this.textBox2);
             this.Controls.Add(this.textBox1);
-            this.Name = "SignUp";
+            this.Name = "SignUpFrame";
             this.Text = "SignUp";
             this.Load += new System.EventHandler(this.SignUp_Load);
             this.ResumeLayout(false);

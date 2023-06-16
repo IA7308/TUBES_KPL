@@ -10,11 +10,23 @@ using System.Windows.Forms;
 
 namespace LoginFrame
 {
-    public partial class Form1 : Form
+    public partial class PilihKendaraan : Form
     {
-        public Form1()
+        public PilihKendaraan()
         {
             InitializeComponent();
+        }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+            NEWS news = new NEWS();
+            news.Visible = true;
+            this.Hide();
+        }
+
+        private void radioButton2_CheckedChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

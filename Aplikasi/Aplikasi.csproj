@@ -9,6 +9,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Alokasi\Alokasi.csproj" />
+    <ProjectReference Include="..\NEWS\NEWS.csproj" />
   </ItemGroup>
 
   <ItemGroup>
