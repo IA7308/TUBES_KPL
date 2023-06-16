@@ -51,7 +51,7 @@
     </Compile>
     <Compile Include="Alokasi.Designer.cs">
       <DependentUpon>Alokasi.cs</DependentUpon>
-	</Compile>
+    </Compile>
     <Compile Include="NEWS.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -78,9 +78,15 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="UploadNews.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UploadNews.Designer.cs">
+      <DependentUpon>UploadNews.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="Alokasi.resx">
       <DependentUpon>Alokasi.cs</DependentUpon>
-	</EmbeddedResource>
+    </EmbeddedResource>
     <EmbeddedResource Include="NEWS.resx">
       <DependentUpon>NEWS.cs</DependentUpon>
     </EmbeddedResource>
@@ -101,6 +107,9 @@
     </Compile>
     <EmbeddedResource Include="SignUpFrame.resx">
       <DependentUpon>SignUpFrame.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UploadNews.resx">
+      <DependentUpon>UploadNews.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
