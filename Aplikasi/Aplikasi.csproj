@@ -11,4 +11,10 @@
     <ProjectReference Include="..\Alokasi\Alokasi.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Compile Update="SignUpFrame.cs">
+      <SubType>Form</SubType>
+    </Compile>
+  </ItemGroup>
+
 </Project>
