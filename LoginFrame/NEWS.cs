@@ -35,5 +35,12 @@ namespace LoginFrame
             login.Visible = true;
             this.Hide();
         }
+
+        private void UploadBerita_Click(object sender, EventArgs e)
+        {
+            UploadNews uploadnews = new UploadNews();
+            uploadnews.Visible = true;
+            this.Hide();
+        }
     }
 }

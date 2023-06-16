@@ -35,6 +35,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
+            this.UploadBerita = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             this.SuspendLayout();
@@ -85,10 +86,10 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(252, 336);
+            this.button1.Location = new System.Drawing.Point(187, 330);
             this.button1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(87, 19);
+            this.button1.Size = new System.Drawing.Size(87, 25);
             this.button1.TabIndex = 5;
             this.button1.Text = "Penjemputan";
             this.button1.UseVisualStyleBackColor = true;
@@ -105,12 +106,24 @@
             this.label3.Text = "LogOut";
             this.label3.Click += new System.EventHandler(this.label3_Click);
             // 
+            // UploadBerita
+            // 
+            this.UploadBerita.Location = new System.Drawing.Point(329, 330);
+            this.UploadBerita.Margin = new System.Windows.Forms.Padding(2);
+            this.UploadBerita.Name = "UploadBerita";
+            this.UploadBerita.Size = new System.Drawing.Size(87, 25);
+            this.UploadBerita.TabIndex = 7;
+            this.UploadBerita.Text = "Upload Berita";
+            this.UploadBerita.UseVisualStyleBackColor = true;
+            this.UploadBerita.Click += new System.EventHandler(this.UploadBerita_Click);
+            // 
             // NEWS
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.DarkSeaGreen;
             this.ClientSize = new System.Drawing.Size(600, 366);
+            this.Controls.Add(this.UploadBerita);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.label2);
@@ -135,5 +148,6 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Button UploadBerita;
     }
 }

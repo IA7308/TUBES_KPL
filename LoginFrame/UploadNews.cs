@@ -40,5 +40,12 @@ namespace LoginFrame
                 dgv.CurrentRow.Cells["IsiKolom"].Value = isiBox.Text;
             }
         }
+
+        private void Back_Click(object sender, EventArgs e)
+        {
+            NEWS news = new NEWS();
+            news.Visible = true;
+            this.Hide();
+        }
     }
 }

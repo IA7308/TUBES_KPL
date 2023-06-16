@@ -17,11 +17,11 @@ namespace LoginFrame
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
 
-<<<<<<< HEAD
+
             Application.Run(new UploadNews());
-=======
-            Application.Run(new Login());
->>>>>>> 55867dd2dc0bdf070a14193cf4bdfdd0931e44f8
+
+          
+
             
 
         }
