@@ -10,7 +10,6 @@ namespace LoginFrame
     {
         void Login(string username, string password);
         void SignUp(string username, string password);
-
         void Registrasi();
     }
 }

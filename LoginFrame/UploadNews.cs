@@ -55,5 +55,12 @@ namespace LoginFrame
            // news.Visible = true;
             this.Hide();
         }
+
+        private void dgv_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            Jenis.Text = dgv.CurrentRow.Cells["JudulBerita"].Value.ToString();
+            Judulbox.Text = dgv.CurrentRow.Cells["JudulKolom"].Value.ToString();
+            isiBox.Text = dgv.CurrentRow.Cells["IsiKolom"].Value.ToString();
+        }
     }
 }

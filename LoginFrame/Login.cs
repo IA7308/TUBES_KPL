@@ -27,12 +27,15 @@ namespace LoginFrame
 
         private void button1_Click(object sender, EventArgs e)
         {
+            //Jika inputan kosong.
             if (this.textBox1.Text == "" || this.textBox2.Text == "")
             {
                 MessageBox.Show("Tidak Boleh Kosong", "Error", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
+            //Jika tidak kosong.
             else
             {
+                //Memanggil controller Login dengan berisikan parameter textBox.
                 controller.Login(this.textBox1.Text, this.textBox2.Text);
             }
 
@@ -40,8 +43,7 @@ namespace LoginFrame
 
         private void button2_Click(object sender, EventArgs e)
         {
-            //SignUpFrame SignUp = new SignUpFrame();
-            //SignUp.Visible = true;
+            //Memanggil Controller Registrasi.
             controller.Registrasi();
         }
 

@@ -102,8 +102,11 @@ namespace LoginFrame
                 bool loginStatus = Login<Admin>(username, password);
                 if (loginStatus)
                 {
+                    this.frameNEWS.UploadBerita.Visible = true;
                     this.frameNEWS.Visible = true;
                     this.frameLogin.Hide();
+                    MessageBox.Show("Login berhasil", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
                 }
                 else
                 {
@@ -115,8 +118,10 @@ namespace LoginFrame
                 bool loginStatus = Login<Person>(username, password);
                 if(loginStatus)
                 {
+                    this.frameNEWS.UploadBerita.Visible = false;
                     this.frameNEWS.Visible = true;
                     this.frameLogin.Hide();
+                    MessageBox.Show("Login berhasil", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
                 else
                 {
