@@ -52,6 +52,10 @@
     <Compile Include="Alokasi.Designer.cs">
       <DependentUpon>Alokasi.cs</DependentUpon>
     </Compile>
+    <Compile Include="Admin.cs" />
+    <Compile Include="Controller.cs" />
+    <Compile Include="IController.cs" />
+    <Compile Include="Person.cs" />
     <Compile Include="NEWS.cs">
       <SubType>Form</SubType>
     </Compile>

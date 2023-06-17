@@ -12,9 +12,11 @@ namespace LoginFrame
 {
     public partial class NEWS : Form
     {
-        public NEWS()
+        IController controller;
+        public NEWS(IController controller)
         {
             InitializeComponent();
+            this.controller = controller;
         }
 
         private void label1_Click(object sender, EventArgs e)
@@ -31,8 +33,8 @@ namespace LoginFrame
 
         private void label3_Click(object sender, EventArgs e)
         {
-            Login login = new Login();
-            login.Visible = true;
+            //Login login = new Login();
+            //login.Visible = true;
             this.Hide();
         }
 

@@ -17,8 +17,9 @@ namespace LoginFrame
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
 
+            Controller control = new Controller();
 
-            Application.Run(new UploadNews());
+            Application.Run(new Login(control));
 
           
 

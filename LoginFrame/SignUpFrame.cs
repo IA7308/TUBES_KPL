@@ -12,9 +12,11 @@ namespace LoginFrame
 {
     public partial class SignUpFrame : Form
     {
-        public SignUpFrame()
+        IController controller;
+        public SignUpFrame(IController controller)
         {
             InitializeComponent();
+            this.controller = controller;
         }
 
         private void SignUp_Load(object sender, EventArgs e)
@@ -30,8 +32,9 @@ namespace LoginFrame
             }
             else
             {
-                Login login = new Login();
-                login.Visible = true;
+                //Login login = new Login();
+                //login.Visible = true;
+                controller.SignUp(this.textBox1.Text, this.textBox3.Text);
                 this.Hide();
             }
 
@@ -39,8 +42,8 @@ namespace LoginFrame
 
         private void label1_Click(object sender, EventArgs e)
         {
-            Login login = new Login();
-            login.Visible = true;
+            //Login login = new Login();
+            //login.Visible = true;
             this.Hide();
         }
     }

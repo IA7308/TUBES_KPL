@@ -19,8 +19,8 @@ namespace LoginFrame
 
         private void label2_Click(object sender, EventArgs e)
         {
-            NEWS news = new NEWS();
-            news.Visible = true;
+            //NEWS news = new NEWS();
+            //news.Visible = true;
             this.Hide();
         }
 

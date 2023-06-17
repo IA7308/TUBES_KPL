@@ -12,10 +12,12 @@ namespace LoginFrame
 {
     public partial class Login : Form
     {
+        IController controller;
         
-        public Login()
+        public Login(IController controller)
         {
             InitializeComponent();
+            this.controller = controller;
         }
 
         private void label1_Click(object sender, EventArgs e)
@@ -31,18 +33,16 @@ namespace LoginFrame
             }
             else
             {
-                NEWS news = new NEWS();
-                news.Visible = true;
-                this.Hide();
+                controller.Login(this.textBox1.Text, this.textBox2.Text);
             }
 
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
-            SignUpFrame SignUp = new SignUpFrame();
-            SignUp.Visible = true;
-            this.Hide();
+            //SignUpFrame SignUp = new SignUpFrame();
+            //SignUp.Visible = true;
+            controller.Registrasi();
         }
 
         private void textBox1_TextChanged(object sender, EventArgs e)
