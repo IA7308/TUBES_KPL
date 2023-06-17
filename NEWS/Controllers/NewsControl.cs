@@ -6,7 +6,7 @@ namespace NEWS.Controllers
     [Route("api/[Controller]")]
     public class NewsControl
     {
-        public static List<News> NewsList = new List<News>()
+        public static List<News> newsList = new List<News>()
         {
             new News{ news = "Event", judul = "Cegah Banjir", isi = "Bersihkan Saluran Air & Buang Sampah Pada Tempatnya"},
             new News{ news = "Info", judul = "Kebersihan Alam", isi = "Sampah yang dibuang sembarangan akan mencemari lingkungan"},
@@ -16,28 +16,28 @@ namespace NEWS.Controllers
         [HttpPost(Name = "PostNews")]
         public void Upload(News News)
         {
-            NewsList.Add(News);
+            newsList.Add(News);
         }
         [HttpDelete(Name = "DeleteNews")]
         public void Delete(int index)
         {
-            NewsList.RemoveAt(index);          
+            newsList.RemoveAt(index);          
         }
         [HttpGet(Name = "InfoNews")]
         public List<string> infoNews()
         {
             List<string> str = new List<string>();
-            for (int i = 0; i < NewsList.Count; i++)
+            for (int i = 0; i < newsList.Count; i++)
             {
-                str.Add(NewsList[i].judul);
+                str.Add(newsList[i].judul);
 
             }
             return str;
         }
         [HttpGet("{index}")]
-        public News NewsIndex(int index)
+        public News newsIndex(int index)
         {
-            return NewsList[index];
+            return newsList[index];
         }
     }
 }
